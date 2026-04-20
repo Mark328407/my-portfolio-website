@@ -85,11 +85,17 @@
 			if(result.success){
 				isLoading.value=false;
 				notyf.success("Message Sent!");
+				// Reset form fields
+           		name.value = "";
+            	email.value = "";
+            	message.value = "";
+            	resetRecaptcha(); 
 			}
 		}catch(e){
 			console.log(e);
 			isLoading.value = false;
 			notyf.error("Failed to send a message. Please try again.")
+			resetRecaptcha(); 
 		}
 	}
 
